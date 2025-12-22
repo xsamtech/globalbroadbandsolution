@@ -52,7 +52,7 @@
             <div class="container-login100">
                 <div class="wrap-login100">
 @yield('guest-content')
-                    <div class="login100-more" style="background-image: url('/assets/img/bg-01.jpg');"></div>
+                    <div class="login100-more" style="background-image: url({{ asset('assets/img/bg-01.png') }}); background-attachment: fixed;"></div>
                 </div>
             </div>
         </div>
