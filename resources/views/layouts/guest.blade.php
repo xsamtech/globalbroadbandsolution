@@ -60,7 +60,8 @@
                         <div class="text-left mt-5 mb-5 pl-4 pr-4">
                             <img src="{{ asset('assets/img/logo-reverse.png') }}" alt="logo-white" width="390" style="margin-bottom: 30px;">
 
-                            <h3 class="text-white">Une connexion ultra-rapide, stable et illimitée, pensée pour les résidents exigeants de la Gombe.</h3>
+                            <h3 class="text-muted mb-3">Une connexion ultra-rapide, stable et illimitée, pensée pour les résidents exigeants de la Gombe.</h3>
+                            <h3 class="gbs-text-greenish">Déjà installée dans plusieurs immeubles résidentiels premium à la Gombe.</h3>
                         </div>
                     </div>
                 </div>
