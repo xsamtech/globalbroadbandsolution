@@ -1,8 +1,8 @@
-@extends('layouts.guest', ['page_title' => 'Global Broadband Solution'])
+@extends('layouts.guest', ['page_title' => !empty($eligibility) ? ($eligibility == 1 ? 'Immeuble éligible' : 'Immeuble non éligible') : 'Global Broadband Solution'])
 
 @section('guest-content')
 
-                    <form class="login100-form validate-form">
+                    <form method="POST" action="{{ !empty($eligibility) ? ($eligibility == 1 ? route('buildings') : '') : route('home') }}" class="login100-form validate-form">
                         <div class="text-center mb-3">
                             <img src="{{ asset('assets/img/logo.png') }}" alt="logo" width="200">
                         </div>
@@ -21,10 +21,12 @@
                         <p class="lead text-center"><i class="bi bi-x-lg text-danger" style="font-size: 30px; vertical-align: -3px; margin-right: 8px;"></i>Votre immeuble n’est pas éligible</p>
 
                         <div class="container-login100-form-btn p-t-30">
-                            <button class="login100-form-btn gbs-btn-cyan">Découvrez maintenent</button>
+                            <a class="login100-form-btn gbs-btn-cyan">Découvrez maintenent</a>
                         </div>
         @endif
     @else
+        @csrf
+
                         <div class="wrap-input100 validate-input" data-validate = "Veuillez donner le nom de votre immeuble !">
                             <input class="input100" type="text" name="building_name" autofocus>
                             <span class="focus-input100"></span>

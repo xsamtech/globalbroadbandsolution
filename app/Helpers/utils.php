@@ -38,7 +38,7 @@ if (!function_exists('distanceKm')) {
 
         $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
 
-        return $rayonTerre * $c;
+        return round(($rayonTerre * $c), 2);
     }
 }
 

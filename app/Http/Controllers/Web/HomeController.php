@@ -43,10 +43,11 @@ class HomeController extends Controller
             $gombe->longitude
         );
 
-        return response()->json([
-            'area' => $userArea->nom,
-            'distance_km' => round($distance, 2)
-        ]);
+        dd($distance);
+        // return response()->json([
+        //     'area' => $userArea->nom,
+        //     'distance_km' => round($distance, 2)
+        // ]);
     }
 
     //

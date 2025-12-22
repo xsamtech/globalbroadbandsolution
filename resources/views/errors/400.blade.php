@@ -2,29 +2,22 @@
 
 @section('guest-content')
 
-            <!-- Title Section-->
-            <section class="pb-1">
-                <div class="container px-5">
-                    <div class="text-center mb-5">
-                        <h1 class="display-1 fw-bolder mb-0"><span class="text-gradient d-inline">400</span></h1>
-                    </div>
-                </div>
-            </section>
+                    <div class="text-center login100-form">
+                        <div class="text-center mb-5">
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="logo" width="200">
+                        </div>
 
-            <!-- Login Section-->
-            <section class="pb-3">
-                <div class="container px-5">
-                    <div class="row g-3">
-                        <!-- Customers -->
-                        <div class="col-lg-6 col-sm-7 mx-auto">
-                            <div class="card card-body text-center">
-                                <h2 class="card-title fw-bold">@lang('notifications.400_title')</h2>
-                                <p class="card-text">@lang('notifications.400_description')</p>
-                                <a href="{{ route('dashboard.home') }}" class="btn btn-danger w-75 mx-auto mt-3 rounded-pill">@lang('miscellaneous.back_home')</a>
-                            </div>
+                        <!-- Title Section-->
+                        <span class="display-1 p-b-43 font-weight-bold gbs-text-green">400</span>
+
+                        <!-- Login Section-->
+                        <span class="login100-form-title p-b-43">
+                            @lang('notifications.400_title')
+                        </span>
+
+                        <div class="container-login100-form-btn p-t-30">
+                            <a href="{{ route('home') }}" class="login100-form-btn gbs-btn-cyan">@lang('miscellaneous.back_home')</a>
                         </div>
                     </div>
-                </div>
-            </section>
 
 @endsection

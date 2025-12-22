@@ -25,5 +25,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/account', [HomeController::class, 'updateAccount']);
     Route::delete('/delete/{entity}/{id}', [HomeController::class, 'remove'])->name('remove');
 });
+Route::post('/buildings', [HomeController::class, 'addBuilding']);
 
 require __DIR__.'/auth.php';
