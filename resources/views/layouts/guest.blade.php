@@ -16,6 +16,28 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicon/favicon-16x16.png') }}">
         <link rel="manifest" href="{{ asset('assets/img/favicon/site.webmanifest') }}">
 
+        <!-- Font icons-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+
+        <!-- Addons CSS-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/login/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/jquery/jquery-ui/jquery-ui.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/sweetalert2/dist/sweetalert2.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/jquery/datetimepicker/css/jquery.datetimepicker.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/cropper/css/cropper.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/login/animate/animate.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/login/css-hamburgers/hamburgers.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/login/animsition/css/animsition.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/login/select2/select2.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/login/daterangepicker/daterangepicker.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+
+        <!-- Core theme CSS-->
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+
         <title>
 @if (!empty($page_title))
             {{ $page_title }}
@@ -24,17 +46,27 @@
 @endif
         </title>
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+    <body style="background-color: #666666;">
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+@yield('guest-content')
+                    <div class="login100-more" style="background-image: url('/assets/img/bg-01.jpg');"></div>
+                </div>
             </div>
         </div>
+
+        <!-- Scripts -->
+        <script src="{{ asset('assets/addons/login/jquery/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/login/animsition/js/animsition.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/login/bootstrap/js/popper.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/login/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/login/select2/select2.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/login/daterangepicker/moment.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/login/daterangepicker/daterangepicker.js') }}"></script>
+        <script src="{{ asset('assets/addons/login/countdowntime/countdowntime.js') }}"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script src="{{ asset('assets/js/scripts.custom.js') }}"></script>
     </body>
 </html>
