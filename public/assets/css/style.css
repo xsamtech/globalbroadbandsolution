@@ -1,0 +1,261 @@
+/*
+    Custom styles
+
+    Author : Xanders Samoth | https://teams.xsamtech.com/xanderssamoth
+*/
+
+/* typography */
+pre {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    white-space: pre-wrap;
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
+}
+
+a {
+    color: var(--bs-primary);
+}
+
+textarea {
+    resize: none;
+}
+
+/********** Custom colors **********/
+/* background */
+.gbs-dark-blue {
+    background-color: #2d3d51 !important;
+}
+
+.gbs-dark-blue-transparent {
+    background-color: rgba(45, 61, 81, 0.5) !important;
+}
+
+a.gbs-dark-blue-transparent:hover {
+    transition: .3s;
+    background-color: rgba(45, 61, 81, 0.7) !important;
+}
+
+.gbs-dark-bluish {
+    background-color: #494f5d !important;
+}
+
+.gbs-dark-bluish-transparent {
+    background-color: rgba(73, 79, 93, 0.5) !important;
+}
+
+a.gbs-dark-bluish-transparent:hover {
+    transition: .3s;
+    background-color: rgba(73, 79, 93, 0.7) !important;
+}
+
+.gbs-cyan {
+    background-color: #6dab92 !important;
+}
+
+.gbs-cyan-transparent {
+    background-color: rgba(109, 171, 146, 0.5) !important;
+}
+
+a.gbs-cyan-transparent:hover {
+    transition: .3s;
+    background-color: rgba(109, 171, 146, 0.7) !important;
+}
+
+.gbs-green {
+    background-color: #3c692d !important;
+}
+
+.gbs-green-transparent {
+    background-color: rgba(60, 105, 45, 0.5) !important;
+}
+
+a.gbs-green-transparent:hover {
+    transition: .3s;
+    background-color: rgba(60, 105, 45, 0.7) !important;
+}
+
+.gbs-greenish {
+    background-color: #96b374 !important;
+}
+
+.gbs-greenish-transparent {
+    background-color: rgba(150, 179, 116, 0.5) !important;
+}
+
+a.gbs-greenish-transparent:hover {
+    transition: .3s;
+    background-color: rgba(150, 179, 116, 0.7) !important;
+}
+
+.gbs-bg-black {
+    background-color: #000 !important;
+}
+
+.gbs-bg-black-transparent {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* button */
+.gbs-btn-dark-blue {
+    background-color: #2d3d51 !important;
+    color: #fff !important;
+    border-color: #273647 !important;
+}
+
+.gbs-btn-dark-blue:hover {
+    background-color: #000 !important;
+    border-color: #000 !important;
+}
+
+.gbs-btn-dark-bluish {
+    background-color: #494f5d !important;
+    color: #000 !important;
+    border-color: #414753 !important;
+}
+
+.gbs-btn-dark-bluish:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+}
+
+.gbs-btn-cyan {
+    background-color: #6dab92 !important;
+    color: #000 !important;
+    border-color: #65a088 !important;
+}
+
+.gbs-btn-cyan:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+}
+
+.gbs-btn-green {
+    background-color: #3c692d !important;
+    color: #fff !important;
+    border-color: #355c28 !important;
+}
+
+.gbs-btn-cyan:hover {
+    background-color: #000 !important;
+    border-color: #000 !important;
+}
+
+.gbs-btn-greenish {
+    background-color: #96b374 !important;
+    color: #000 !important;
+    border-color: #8ba76b !important;
+}
+
+.gbs-btn-cyan:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+}
+
+.gbs-btn-black {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+}
+
+.gbs-btn-black:hover {
+    background-color: #000 !important;
+    border-color: #000 !important;
+}
+
+/* text */
+.gbs-text-dark-blue {
+    color: #2d3d51 !important;
+}
+
+a:hover.gbs-text-green {
+    color: #253242 !important;
+}
+
+.gbs-text-dark-bluish {
+    color: #494f5d !important;
+}
+
+a:hover.gbs-text-green {
+    color: #3b3f4b !important;
+}
+
+.gbs-text-cyan {
+    color: #6dab92 !important;
+}
+
+a:hover.gbs-text-green {
+    color: #609680 !important;
+}
+
+.gbs-text-green {
+    color: #3c692d !important;
+}
+
+a:hover.gbs-text-green {
+    color: #325725 !important;
+}
+
+.gbs-text-greenish {
+    color: #96b374 !important;
+}
+
+a:hover.gbs-text-green {
+    color: #7d9661 !important;
+}
+
+/* paragraph */
+.gbs-line-height-1 {
+    line-height: 1;
+}
+
+.gbs-line-height-1_4 {
+    line-height: 1.4;
+}
+
+.gbs-line-height-1_45 {
+    line-height: 1.45;
+}
+
+.gbs-line-height-1_5 {
+    line-height: 1.5;
+}
+
+/********** Custom bootstrap components **********/
+/* button */
+.btn {
+    font-size: 11pt;
+}
+
+/* stretched link */
+.card-body+.stretched-link::after {
+    background-color: rgba(70, 100, 150, 0.2) !important;
+    opacity: 0;
+    transition: .3s;
+}
+
+.card-body+.stretched-link.changed::after {
+    opacity: 1;
+}
+
+
+/* A modal over another modal */
+.modal:nth-of-type(even) {
+    z-index: 1052 !important;
+}
+
+.modal-backdrop.show:nth-of-type(even) {
+    z-index: 1051 !important;
+}
+
+/********** Miscellaneous **********/
