@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Xanders
  * @see https://www.linkedin.com/in/xanders-samoth-b2770737/
@@ -19,6 +20,39 @@ if (!function_exists('getApiURL')) {
     function getApiURL()
     {
         return (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/api';
+    }
+}
+
+// Get distance (kilometers) between 2 area
+if (!function_exists('distanceKm')) {
+    function distanceKm($lat1, $lon1, $lat2, $lon2)
+    {
+        $rayonTerre = 6371; // km
+
+        $dLat = deg2rad($lat2 - $lat1);
+        $dLon = deg2rad($lon2 - $lon1);
+
+        $a = sin($dLat / 2) * sin($dLat / 2) +
+            cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+            sin($dLon / 2) * sin($dLon / 2);
+
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+
+        return $rayonTerre * $c;
+    }
+}
+
+// Coordinates: Convert DMS to Decimal
+if (!function_exists('dmsToDecimal')) {
+    function dmsToDecimal($deg, $min, $sec, $direction)
+    {
+        $decimal = $deg + ($min / 60) + ($sec / 3600);
+
+        if ($direction === 'S' || $direction === 'W') {
+            $decimal *= -1;
+        }
+
+        return round($decimal, 7);
     }
 }
 
@@ -87,7 +121,7 @@ if (!function_exists('deleteExplodedArrayItem')) {
         $explodes = explode($separator, $subject);
         $clean_inventory = array();
 
-        foreach($explodes as $explode) {
+        foreach ($explodes as $explode) {
             if (!isset($clean_inventory[$explode])) {
                 $clean_inventory[$explode] = 0;
             }
@@ -129,7 +163,7 @@ if (!function_exists('compareCollections')) {
         }
 
         // The collections have the same size, we check element by element:
-        foreach($c1 as $item) {
+        foreach ($c1 as $item) {
             // We find the current element in $c1 in $c2:
             $itemToCompare = array_filter($c2, function ($compareItem) use ($item) {
                 return ($compareItem['id'] == $item['id']);
@@ -148,7 +182,7 @@ if (!function_exists('compareCollections')) {
             // If there is a different, return false:
             if (!empty($diff)) {
                 return false;
-            }       
+            }
         }
 
         // If everything is ok until here, the collections are the same:

@@ -129,13 +129,12 @@ a.gbs-greenish-transparent:hover {
 
 .gbs-btn-cyan {
     background-color: #6dab92 !important;
-    color: #000 !important;
+    color: #fff !important;
     border-color: #65a088 !important;
 }
 
 .gbs-btn-cyan:hover {
     background-color: #000 !important;
-    color: #fff !important;
     border-color: #000 !important;
 }
 
