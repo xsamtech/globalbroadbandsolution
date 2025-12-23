@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 // Public
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/', [HomeController::class, 'checkEligibility']);
+Route::get('/registration', [HomeController::class, 'registration'])->name('registration');
+Route::post('/registration', [HomeController::class, 'registerCustomer']);
 // Admin
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

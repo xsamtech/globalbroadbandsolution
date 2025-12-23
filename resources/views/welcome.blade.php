@@ -1,6 +1,57 @@
 @extends('layouts.guest', ['page_title' => !empty($eligibility) ? ($eligibility == 1 ? 'Immeuble éligible' : 'Immeuble non éligible') : 'Global Broadband Solution'])
 
 @section('guest-content')
+
+            <!-- Eligibility Section -->
+            <section id="eligibility" class="about section gbs-dark-blue">
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <span class="subtitle gbs-text-greenish">Éligibilité de mon immeuble</span>
+                    <h2 class="text-white">Tester l’éligibilité de mon immeuble</h2>
+                    <p class="text-white-50">
+                        Découvrez si votre immeuble est éligible à la Fibre Optique GBS.
+                    </p>
+                </div><!-- End Section Title -->
+
+                <div class="container" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card-body pl-lg-5 p-sm-4 p-3 rounded-4">
+                                <form method="POST" action="{{ route('home') }}">
+    @csrf
+                                    <div class="row g-4">
+                                        <div class="col-sm-4">
+                                            <label for="building_name" class="form-label text-black fw-bold">Nom de l’immeuble</label>
+                                            <input type="text" name="building_name" id="building_name" class="form-control py-3" placeholder="Comment s’appelle votre immeuble" required autofocus>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <label for="area" class="form-label text-black fw-bold">Commune</label>
+                                            <select name="area" id="area" class="form-select py-3" aria-label="Dans quelle commune, votre immeuble ?">
+    @forelse ($areas as $area)
+                                                <option>{{ $area->name }}</option>
+    @empty
+                                                <option class="small" disabled selected>La liste est vide</option>
+    @endforelse
+                                            </select>
+                                        </div>
+
+                                        <div class="col-sm-4 d-flex align-items-end">
+                                            <button type="submit" class="btn gbs-btn-greenish position-relative w-100 py-3">
+                                                <span>Découvrez maintenent</span>
+                                                <div id="ajax-loader" class="spinner-border position-absolute d-none" role="status" style="top: 0.8rem; right: 0.8rem;">
+                                                    <span class="visually-hidden">Chargement...</span>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /Eligibility Section -->
+
             <!-- Hero Section -->
             <section id="hero" class="hero section light-background">
                 <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -64,48 +115,6 @@
                     </div>
                 </div>
             </section><!-- /Hero Section -->
-
-            <!-- Eligibility Section -->
-            <section id="eligibility" class="about section gbs-dark-blue">
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <span class="subtitle gbs-text-greenish">Éligibilité de mon immeuble</span>
-                    <h2 class="text-white">Tester l’éligibilité de mon immeuble</h2>
-                    <p class="text-white-50">
-                        Découvrez si votre immeuble est éligible à la Fibre Optique GBS.
-                    </p>
-                </div><!-- End Section Title -->
-
-                <div class="container" data-aos="fade-up">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-body pl-lg-5 p-sm-4 p-3">
-                                <form method="POST" action="{{ route('home') }}">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <label for="building_name" class="form-label text-black">Nom de l’immeuble</label>
-                                            <input type="text" name="building_name" id="building_name" class="form-control py-3" placeholder="Comment s’appelle votre immeuble">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label for="name" class="form-label text-black">Commune</label>
-                                            <select name="name" id="area_name" class="form-select py-3" aria-label="Dans quelle commune, votre immeuble ?">
-    @forelse ($areas as $area)
-                                                <option>{{ $area->name }}</option>
-    @empty
-                                                <option class="small" disabled selected>La liste est vide</option>
-    @endforelse
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4 d-flex align-items-end">
-                                            <button class="btn gbs-btn-greenish w-100 py-3">Découvrez maintenent</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- /Eligibility Section -->
 
             <!-- Why Us Section -->
             <section id="why-us" class="why-us section">
@@ -325,7 +334,7 @@
 
                         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
                             <div class="image-wrapper">
-                                <img src="{{ asset('assets/img/about/about-square-12.webp') }}" alt="About us" class="img-fluid">
+                                <img src="{{ asset('assets/img/about/about-square-12.webp') }}" alt="About us" class="img-fluid rounded-5">
                                 <div class="floating-card" data-aos="zoom-in" data-aos-delay="500">
                                     <div class="card-content">
                                         <div class="icon">

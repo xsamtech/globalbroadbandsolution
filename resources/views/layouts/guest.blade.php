@@ -27,6 +27,7 @@
         <!-- Addons CSS-->
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/axis/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/jquery/jquery-ui/jquery-ui.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/cropper/css/cropper.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/sweetalert2/dist/sweetalert2.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/jquery/datetimepicker/css/jquery.datetimepicker.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/addons/custom/cropper/css/cropper.min.css') }}">
@@ -38,12 +39,15 @@
         <!-- Core theme CSS-->
         <link rel="stylesheet" href="{{ asset('assets/css/styles.custom.css') }}" />
         <style>
+            header, .btn { transition: .5s ease all; }
             .header { padding: 5px 0; }
             .header .logo img { max-height: 80px; margin-right: 8px; }
             #ourStrengths, .some-list { padding: 0; }
             #ourStrengths li, .some-list li { font-size: 1.125rem; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 20%); list-style: none; }
             .services .service-item .service-icon { background: #2d3d51!important; }
             .services .service-item h5 { color: #999!important; }
+            #eligibility { margin-top: 90px; }
+            #starter-section { margin-top: 30px; }
         </style>
 
         <title>
@@ -65,8 +69,8 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="/#hero" class="active">Accueil</a></li>
                         <li><a href="/#eligibility">Eligibilité</a></li>
+                        <li><a href="/#hero" class="active">Accueil</a></li>
                         <li><a href="/#why-us">A propos</a></li>
                         <li><a href="/#services">Services</a></li>
                         <li><a href="/#contact">Contact</a></li>
@@ -80,6 +84,7 @@
         <main class="main">
 @yield('guest-content')
 
+@if (Route::is('home'))
             <!-- Contact Section -->
             <section id="contact" class="contact section light-background">
                 <!-- Section Title -->
@@ -87,7 +92,7 @@
                     <span class="subtitle">Contact</span>
                     <h2>Connectons-nous</h2>
                     <p>
-                        Ecrivez-nous et faites-nous savoir votre besoin. Notre agent vous envoie un mail dans les minutes suivent.
+                        Ecrivez-nous et faites-nous savoir votre besoin. Notre agent vous envoie un mail dans les minutes qui suivent.
                     </p>
                 </div><!-- End Section Title -->
 
@@ -189,6 +194,7 @@
                     </div>
                 </div>
             </section><!-- /Contact Section -->
+@endif
         </main>
 
         <footer id="footer" class="footer dark-background">
@@ -238,40 +244,119 @@
                         <p>Congo – Kinshasa</p>
                         <p class="mt-4"><strong>Tél. :</strong> <span>+243 808 808 800</span></p>
                         <p><strong>E-mail :</strong> <span>sales@corp.gbs.cd</span></p>
-                        <p><strong>Site web :</strong> <span><a href="http://www.gbs.cd" target="_blank">www.gbs.cd</a></span></p>
+                        <p><strong>Site web :</strong> <span><a href="https://www.gbs.cd" target="_blank">www.gbs.cd</a></span></p>
                     </div>
                 </div>
             </div>
 
             <div class="container copyright text-center mt-4">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Global Broadband Solution</strong>
-                    <span>Tous droits réservés</span></p>
+                <p>
+                    © <span>Copyright</span> <strong class="px-1 sitename">Global Broadband Solution</strong>
+                    <span>Tous droits réservés</span>
+                </p>
 
-                    <div class="credits">
-                        Designed by <a href="https://xsamtech.com/" target="_blank">Xsam Technologies</a>
-                    </div>
+                <div class="credits">
+                    Designed by <a href="https://xsamtech.com/" target="_blank">Xsam Technologies</a>
                 </div>
-            </footer>
+            </div>
+        </footer>
 
-            <!-- Scroll Top -->
-            <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <!-- Scroll Top -->
+        <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-            <!-- Preloader -->
-            <div id="preloader"></div>
+        <!-- Preloader -->
+        <div id="preloader"></div>
 
-            <!-- Vendor JS Files -->
-            <script src="{{ asset('assets/addons/axis/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-            <script src="{{ asset('assets/addons/axis/php-email-form/validate.js') }}"></script>
-            <script src="{{ asset('assets/addons/axis/aos/aos.js') }}"></script>
-            <script src="{{ asset('assets/addons/axis/glightbox/js/glightbox.min.js') }}"></script>
-            <script src="{{ asset('assets/addons/axis/purecounter/purecounter_vanilla.js') }}"></script>
-            <script src="{{ asset('assets/addons/axis/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-            <script src="{{ asset('assets/addons/axis/isotope-layout/isotope.pkgd.min.js') }}"></script>
-            <script src="{{ asset('assets/addons/axis/swiper/swiper-bundle.min.js') }}"></script>
+        <!-- Vendor JS Files -->
+        <script type="text/javascript" src="{{ asset('assets/addons/custom/jquery/js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/custom/jquery/js/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/custom/jquery/datetimepicker/js/jquery.datetimepicker.full.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/axis/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/axis/php-email-form/validate.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/axis/aos/aos.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/axis/glightbox/js/glightbox.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/axis/purecounter/purecounter_vanilla.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/axis/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/axis/isotope-layout/isotope.pkgd.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/axis/swiper/swiper-bundle.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/custom/autosize/js/autosize.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/custom/cropper/js/cropper.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/addons/custom/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 
-            <!-- Main JS File -->
-            <script src="{{ asset('assets/js/scripts.axis.js') }}"></script>
+        <!-- Main JS File -->
+        <script type="text/javascript" src="{{ asset('assets/js/scripts.axis.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/scripts.custom.js') }}"></script>
+        <script type="text/javascript">
+            $(function () {
+                /**
+                 * Ajax to send
+                 */
+                /* Check eligibility */
+                $('#eligibility form').on('submit', function (e) {
+                    e.preventDefault();
 
-        <script src="{{ asset('assets/js/scripts.custom.js') }}"></script>
+                    // Afficher l'animation de chargement
+                    $('#ajax-loader').removeClass('d-none');
+
+                    var formData = new FormData(this);
+
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            // Cacher l'animation de chargement
+                            $('#ajax-loader').addClass('d-none');
+
+                            if (response.isEligible) {
+                                Swal.fire({
+                                    title: 'Félicitation !',
+                                    text: response.message,
+                                    icon: 'success',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#494f5d',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Commencer inscription',
+                                    cancelButtonText: 'Annuler'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        // Rediriger vers la route /registration
+                                        window.location.href = '/registration';
+                                    }
+                                });
+
+                            } else {
+                                Swal.fire({
+                                    title: 'Désolé !',
+                                    text: response.message,
+                                    icon: 'error'
+                                });
+                            }
+
+                            // Réinitialiser tous les champs du formulaire
+                            $('#eligibility form')[0].reset();
+                        },
+                        error: function (xhr, error, status_description) {
+                            console.log(xhr.responseJSON);
+                            console.log(xhr.status);
+                            console.log(error);
+                            console.log(status_description);
+
+                            // Cacher l'animation de chargement
+                            $('#ajax-loader').addClass('d-none');
+
+                            // Afficher une alerte d'erreur
+                            Swal.fire({
+                                title: 'Erreur interne',
+                                text: xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : (xhr.responseText && xhr.responseText.message ? xhr.responseText.message : status_description),
+                                icon: 'error'
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

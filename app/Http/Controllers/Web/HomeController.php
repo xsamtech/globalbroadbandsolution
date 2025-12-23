@@ -25,14 +25,36 @@ class HomeController extends Controller
         return view('welcome', compact('areas'));
     }
 
+    /**
+     * GET: Customer registration page
+     *
+     * @return \Illuminate\View\View
+     */
+    public function registration()
+    {
+        return view('registration');
+    }
+
+    // ==================================== HTTP POST METHODS ====================================
+    /**
+     * POST: Check eligibility
+     *
+     * @return \Illuminate\View\View
+     */
     public function checkEligibility(Request $request)
     {
-        $userArea = Area::where('name', $request->area)->first();
         $gombe = Area::where('name', 'Gombe')->first();
+        $userArea = Area::where('name', $request->area)->first();
 
-        if (!$userArea || !$gombe) {
+        if (!$gombe) {
             return response()->json([
-                'error' => 'Commune inconnue'
+                'message' => 'Commune source (Gombe) introuvable'
+            ], 404);
+        }
+
+        if (!$userArea) {
+            return response()->json([
+                'message' => 'Commune sélectionnée introuvable'
             ], 404);
         }
 
@@ -43,11 +65,21 @@ class HomeController extends Controller
             $gombe->longitude
         );
 
-        dd($distance);
-        // return response()->json([
-        //     'area' => $userArea->nom,
-        //     'distance_km' => round($distance, 2)
-        // ]);
+        if ($distance < 8) {
+            session()->put('building_name', $request->building_name);
+            session()->put('area', $request->area);
+
+            return response()->json([
+                'isEligible' => true,
+                'message' => 'Votre immeuble est éligible. Vous pouvez vous inscrire.'
+            ]);
+
+        } else {
+            return response()->json([
+                'isEligible' => false,
+                'message' => 'Immeuble non éligible (À plus de 8km de Gombe).'
+            ]);
+        }
     }
 
     //
