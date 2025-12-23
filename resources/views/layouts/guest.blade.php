@@ -40,8 +40,10 @@
         <style>
             .header { padding: 5px 0; }
             .header .logo img { max-height: 80px; margin-right: 8px; }
-            #ourStrengths { padding: 0; }
-            #ourStrengths li { font-size: 1.125rem; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 20%); list-style: none; }
+            #ourStrengths, .some-list { padding: 0; }
+            #ourStrengths li, .some-list li { font-size: 1.125rem; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 20%); list-style: none; }
+            .services .service-item .service-icon { background: #2d3d51!important; }
+            .services .service-item h5 { color: #999!important; }
         </style>
 
         <title>
@@ -64,7 +66,8 @@
                 <nav id="navmenu" class="navmenu">
                     <ul>
                         <li><a href="/#hero" class="active">Accueil</a></li>
-                        <li><a href="/#about">A propos</a></li>
+                        <li><a href="/#eligibility">Eligibilité</a></li>
+                        <li><a href="/#why-us">A propos</a></li>
                         <li><a href="/#services">Services</a></li>
                         <li><a href="/#contact">Contact</a></li>
                     </ul>
@@ -212,7 +215,8 @@
                         <h4>Liens utiles</h4>
                         <ul>
                             <li><a href="/#hero">Accueil</a></li>
-                            <li><a href="/#about">A propos</a></li>
+                            <li><a href="/#eligibility">Eligibilité</a></li>
+                            <li><a href="/#why-us">A propos</a></li>
                             <li><a href="/#services">Services</a></li>
                         </ul>
                     </div>
