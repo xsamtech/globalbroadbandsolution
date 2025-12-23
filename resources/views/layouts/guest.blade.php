@@ -63,10 +63,10 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="#hero" class="active">Accueil</a></li>
-                        <li><a href="#about">A propos</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/#hero" class="active">Accueil</a></li>
+                        <li><a href="/#about">A propos</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#contact">Contact</a></li>
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
@@ -110,7 +110,7 @@
 
                                     <div class="detail-content">
                                         <span class="detail-label">E-mail</span>
-                                        <span class="detail-value">contact@example.com</span>
+                                        <span class="detail-value">sales@corp.gbs.cd</span>
                                     </div>
                                 </div>
 
@@ -121,7 +121,7 @@
 
                                     <div class="detail-content">
                                         <span class="detail-label">Appel</span>
-                                        <span class="detail-value">+1 (555) 432-8976</span>
+                                        <span class="detail-value">+(243) 808 808 800</span>
                                     </div>
                                 </div>
 
@@ -131,7 +131,7 @@
                                     </div>
                                     <div class="detail-content">
                                         <span class="detail-label">Adresse</span>
-                                        <span class="detail-value">547 Madison Avenue<br>New York, NY 10022</span>
+                                        <span class="detail-value">769, Avenue de l’Équateur,<br>Gombe – Kinshasa</span>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
                                         <div class="sent-message">Votre message a bien été envoyé. Merci !</div>
                                     </div>
 
-                                    <button type="submit" class="submit-btn">
+                                    <button type="submit" class="submit-btn gbs-btn-dark-bluish">
                                         <span>Envoyer Message</span>
                                         <i class="bi bi-arrow-right"></i>
                                     </button>
@@ -192,49 +192,49 @@
             <div class="container footer-top">
                 <div class="row gy-4">
                     <div class="col-lg-5 col-md-12 footer-about">
-                        <a href="index.html" class="logo d-flex align-items-center">
-                            <span class="sitename">Axis</span>
+                        <a href="{{ route('home') }}" class="d-inline-block mb-3">
+                            <img src="{{ asset('assets/img/logo-reverse.png') }}" alt="" width="200" height="129">
                         </a>
 
                         <p>
-                            Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.
+                            Chez Global Broadband Solution, nous déployons une fibre optique premium, spécialement conçue pour les immeubles résidentiels modernes de la Gombe, où la stabilité, la performance et le confort numérique sont essentiels.
                         </p>
 
                         <div class="social-links d-flex mt-4">
-                            <a href><i class="bi bi-twitter-x"></i></a>
-                            <a href><i class="bi bi-facebook"></i></a>
-                            <a href><i class="bi bi-instagram"></i></a>
-                            <a href><i class="bi bi-linkedin"></i></a>
+                            <a><i class="bi bi-twitter-x"></i></a>
+                            <a><i class="bi bi-facebook"></i></a>
+                            <a><i class="bi bi-instagram"></i></a>
+                            <a><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-6 footer-links">
+                    <div class="col-lg-2 col-6 footer-links mt-sm-5">
                         <h4>Liens utiles</h4>
                         <ul>
-                            <li><a href="#">Accueil</a></li>
-                            <li><a href="#">A propos</a></li>
-                            <li><a href="#">Services</a></li>
+                            <li><a href="/#hero">Accueil</a></li>
+                            <li><a href="/#about">A propos</a></li>
+                            <li><a href="/#services">Services</a></li>
                         </ul>
                     </div>
 
-                    <div class="col-lg-2 col-6 footer-links">
+                    <div class="col-lg-2 col-6 footer-links mt-sm-5">
                         <h4>Nos Services</h4>
                         <ul>
-                            <li><a>Web Design</a></li>
-                            <li><a>Web Development</a></li>
-                            <li><a>Product Management</a></li>
-                            <li><a>Marketing</a></li>
-                            <li><a>Graphic Design</a></li>
+                            <li><a>Flex</a></li>
+                            <li><a>Access</a></li>
+                            <li><a>Essentiel</a></li>
+                            <li><a>Conforme</a></li>
+                            <li><a>Exceptionnel</a></li>
                         </ul>
                     </div>
 
-                    <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start mt-lg-5">
                         <h4>Nous contacter</h4>
-                        <p>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p>United States</p>
-                        <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>769, Avenue de l’Équateur, Gombe</p>
+                        <p>Congo – Kinshasa</p>
+                        <p class="mt-4"><strong>Tél. :</strong> <span>+243 808 808 800</span></p>
+                        <p><strong>E-mail :</strong> <span>sales@corp.gbs.cd</span></p>
+                        <p><strong>Site web :</strong> <span><a href="http://www.gbs.cd" target="_blank">www.gbs.cd</a></span></p>
                     </div>
                 </div>
             </div>
@@ -244,7 +244,7 @@
                     <span>Tous droits réservés</span></p>
 
                     <div class="credits">
-                        Designed by <a href="https://xsamtech.com/">Xsam Technologies</a>
+                        Designed by <a href="https://xsamtech.com/" target="_blank">Xsam Technologies</a>
                     </div>
                 </div>
             </footer>

@@ -117,13 +117,12 @@ a.gbs-greenish-transparent:hover {
 
 .gbs-btn-dark-bluish {
     background-color: #494f5d !important;
-    color: #000 !important;
+    color: #fff !important;
     border-color: #414753 !important;
 }
 
 .gbs-btn-dark-bluish:hover {
     background-color: #000 !important;
-    color: #fff !important;
     border-color: #000 !important;
 }
 

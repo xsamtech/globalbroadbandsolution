@@ -18,27 +18,27 @@
                                     <li><i class="bi bi-check-lg me-2"></i>Volume Internet illimité</li>
                                     <li><i class="bi bi-check-lg me-2"></i>Support technique local et réactif</li>
                                 </ul>
-                                <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
-                                    <a href="#about" class="btn-primary">Souscrire maintenant</a>
-                                    <a href="#"class="btn-secondary glightbox">
-                                        <i class="bi bi-whatsapp me-2"></i>Parler à un conseiller WhatsApp
+                                <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
+                                    <a href="#about" class="btn-primary gbs-btn-dark-blue">Souscrire maintenant</a>
+                                    <a role="button" class="btn-secondary glightbox">
+                                        <i class="bi bi-whatsapp me-2 text-success"></i>Parler à un conseiller WhatsApp
                                     </a>
                                 </div>
 
-                                <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+                                <div class="hero-stats" data-aos="fade-up" data-aos-delay="100">
                                     <div class="stat-item">
-                                        <div class="stat-number">500+</div>
-                                        <div class="stat-label">Successful Projects</div>
+                                        <div class="stat-number">24/7</div>
+                                        <div class="stat-label">Aide et assistance</div>
                                     </div>
 
                                     <div class="stat-item">
                                         <div class="stat-number">98%</div>
-                                        <div class="stat-label">Client Satisfaction</div>
+                                        <div class="stat-label">Satisfaction client</div>
                                     </div>
 
                                     <div class="stat-item">
                                         <div class="stat-number">10+</div>
-                                        <div class="stat-label">Years Experience</div>
+                                        <div class="stat-label">Ans d’expérience</div>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
 
                         <div class="col-lg-6">
                             <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
-                                <img src="assets/img/about/about-square-10.webp" alt="Business Success" class="img-fluid">
+                                <img src="{{ asset('assets/img/about/about-square-10.png') }}" alt="Business Success" class="img-fluid">
 
                                 <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
                                     <div class="card-icon">
@@ -54,7 +54,7 @@
                                     </div>
 
                                     <div class="card-content">
-                                        <h5>Revenue Growth</h5>
+                                        <h5>Croissance revenue</h5>
                                         <div class="growth-percentage">+45%</div>
                                     </div>
                                 </div>

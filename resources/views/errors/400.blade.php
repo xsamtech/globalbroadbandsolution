@@ -2,22 +2,26 @@
 
 @section('guest-content')
 
-                    <div class="text-center login100-form">
-                        <div class="text-center mb-5">
-                            <img src="{{ asset('assets/img/logo.png') }}" alt="logo" width="200">
-                        </div>
+            <!-- Error 404 Section -->
+            <section id="error-404" class="error-404 section">
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-8">
+                            <div class="error-content">
+                                <div class="error-number gbs-text-green" data-aos="zoom-in" data-aos-delay="200">400</div>
 
-                        <!-- Title Section-->
-                        <span class="display-1 p-b-43 font-weight-bold gbs-text-green">400</span>
+                                <h1 class="error-title" data-aos="fade-up" data-aos-delay="300">@lang('notifications.400_title')</h1>
 
-                        <!-- Login Section-->
-                        <span class="login100-form-title p-b-43">
-                            @lang('notifications.400_title')
-                        </span>
+                                <p class="error-description" data-aos="fade-up" data-aos-delay="400">@lang('notifications.400_description')</p>
 
-                        <div class="container-login100-form-btn p-t-30">
-                            <a href="{{ route('home') }}" class="login100-form-btn gbs-btn-cyan">@lang('miscellaneous.back_home')</a>
+                                <div class="error-actions" data-aos="fade-up" data-aos-delay="500">
+                                    <a href="/" class="btn-primary gbs-btn-dark-blue">@lang('miscellaneous.back_home')</a>
+                                    <a href="#contact" class="btn-secondary">Contact Support</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </section><!-- /Error 404 Section -->
 
 @endsection
