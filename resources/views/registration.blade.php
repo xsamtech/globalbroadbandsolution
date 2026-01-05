@@ -17,7 +17,7 @@
 
                     <div class="title-wrapper">
                         <h1>Enregistrer votre immeuble</h1>
-                        <p><u>Nom de l’immeuble</u> : <strong>{{ session()->get('building_name') }}</strong></p>
+                        <p><u>Adresse</u> : <strong>{{ session()->get('full_address') }}</strong></p>
                         <p><u>Commune de l’immeuble</u> : <strong>{{ session()->get('area') }}</strong></p>
                     </div>
                 </div><!-- End Section Title -->
@@ -29,7 +29,7 @@
                                 {{-- <form method="POST" action="{{ route('registration') }}"> --}}
                                 <form method="POST" action="">
     @csrf
-                                    <input type="hidden" name="building_name" value="{{ session()->get('building_name') }}">
+                                    <input type="hidden" name="full_address" value="{{ session()->get('full_address') }}">
                                     <input type="hidden" name="area" value="{{ session()->get('area') }}">
 
                                     <div class="row g-4">
@@ -55,12 +55,6 @@
                                         <div class="col-sm-6">
                                             <label for="neighborhood" class="form-label text-black fw-bold">Quartier de l’immeuble</label>
                                             <input type="text" name="neighborhood" id="neighborhood" class="form-control py-3" placeholder="Quartier de votre immeuble" required>
-                                        </div>
-
-                                        <!-- Full address -->
-                                        <div class="col-12">
-                                            <label for="full_address" class="form-label text-black fw-bold">Adresse complète de l’immeuble</label>
-                                            <textarea name="full_address py-3" id="full_address" class="form-control" rows="2" placeholder="Adresse complète de votre immeuble" required></textarea>
                                         </div>
 
                                         <div class="col-sm-6 mx-auto">

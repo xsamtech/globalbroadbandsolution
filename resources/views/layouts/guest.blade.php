@@ -60,6 +60,17 @@
     </head>
 
     <body class="index-page">
+        <div id="ajax-alert-container" class="position-relative d-none">
+            <div class="position-relative">
+                <div class="row position-fixed w-100" style="opacity: 0.9; z-index: 999;">
+                    <div class="col-lg-5 col-sm-6 mx-auto">
+                        <div class="alert alert-success fade show rounded-0" role="alert">
+                            <i class="bi bi-check-circle me-2 fs-4" style="vertical-align: -3px;"></i> Votre immeuble est éligible. Vous pouvez vous inscrire.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Header -->
         <header id="header" class="header d-flex align-items-center fixed-top">
             <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -71,8 +82,8 @@
                     <ul>
                         <li><a href="/#eligibility">Eligibilité</a></li>
                         <li><a href="/#hero" class="active">Accueil</a></li>
-                        <li><a href="/#why-us">A propos</a></li>
                         <li><a href="/#services">Services</a></li>
+                        <li><a href="/#why-us">A propos</a></li>
                         <li><a href="/#contact">Contact</a></li>
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -286,6 +297,18 @@
         <!-- Main JS File -->
         <script type="text/javascript" src="{{ asset('assets/js/scripts.axis.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/scripts.custom.js') }}"></script>
+@if (Session::has('full_address'))
+        <script type="text/javascript">
+            $(function () {
+                $('#ajax-alert-container').removeClass('d-none');
+
+                setInterval(() => {
+                    // Adding alert to do DOM
+                    $('#ajax-alert-container').fadeOut();
+                }, 3000);
+            });
+        </script>
+@endif
         <script type="text/javascript">
             $(function () {
                 /**
@@ -311,21 +334,23 @@
                             $('#ajax-loader').addClass('d-none');
 
                             if (response.isEligible) {
-                                Swal.fire({
-                                    title: 'Félicitation !',
-                                    text: response.message,
-                                    icon: 'success',
-                                    showCancelButton: true,
-                                    confirmButtonColor: '#494f5d',
-                                    cancelButtonColor: '#d33',
-                                    confirmButtonText: 'Commencer inscription',
-                                    cancelButtonText: 'Annuler'
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        // Rediriger vers la route /registration
-                                        window.location.href = '/registration';
-                                    }
-                                });
+                                window.location.href = '/registration';
+
+                                // Swal.fire({
+                                //     title: 'Félicitation !',
+                                //     text: response.message,
+                                //     icon: 'success',
+                                //     showCancelButton: true,
+                                //     confirmButtonColor: '#494f5d',
+                                //     cancelButtonColor: '#d33',
+                                //     confirmButtonText: 'Commencer inscription',
+                                //     cancelButtonText: 'Annuler'
+                                // }).then((result) => {
+                                //     if (result.isConfirmed) {
+                                //         // Rediriger vers la route /registration
+                                //         window.location.href = '/registration';
+                                //     }
+                                // });
 
                             } else {
                                 Swal.fire({

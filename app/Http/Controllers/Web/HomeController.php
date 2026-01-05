@@ -20,6 +20,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        session()->forget('full_address');
+
         $areas = Area::orderBy('name')->get();
 
         return view('welcome', compact('areas'));
@@ -32,7 +34,12 @@ class HomeController extends Controller
      */
     public function registration()
     {
-        return view('registration');
+        if (session()->has('full_address')) {
+            return view('registration');
+
+        } else {
+            return redirect('/');
+        }
     }
 
     // ==================================== HTTP POST METHODS ====================================
@@ -66,7 +73,7 @@ class HomeController extends Controller
         );
 
         if ($distance < 8) {
-            session()->put('building_name', $request->building_name);
+            session()->put('full_address', $request->full_address);
             session()->put('area', $request->area);
 
             return response()->json([

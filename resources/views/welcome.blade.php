@@ -21,15 +21,16 @@
     @csrf
                                     <div class="row g-4">
                                         <div class="col-sm-4">
-                                            <label for="building_name" class="form-label text-black fw-bold">Nom de l’immeuble</label>
-                                            <input type="text" name="building_name" id="building_name" class="form-control py-3" placeholder="Comment s’appelle votre immeuble" required autofocus>
+                                            <label for="full_address" class="form-label text-black fw-bold">Adresse de l’immeuble</label>
+                                            {{-- <textarea name="full_address" id="full_address" class="form-control py-3" placeholder="Adresse de votre immeuble" required autofocus></textarea> --}}
+                                            <input type="text" name="full_address" id="full_address" class="form-control py-3" placeholder="Adresse de votre immeuble" required autofocus>
                                         </div>
 
                                         <div class="col-sm-4">
                                             <label for="area" class="form-label text-black fw-bold">Commune</label>
                                             <select name="area" id="area" class="form-select py-3" aria-label="Dans quelle commune, votre immeuble ?">
     @forelse ($areas as $area)
-                                                <option>{{ $area->name }}</option>
+                                                <option {{ $area->name == 'Gombe' ? 'selected' : '' }}>{{ $area->name }}</option>
     @empty
                                                 <option class="small" disabled selected>La liste est vide</option>
     @endforelse
@@ -116,8 +117,94 @@
                 </div>
             </section><!-- /Hero Section -->
 
+            <!-- Services Section -->
+            <section id="services" class="services section bg-white">
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <span class="subtitle">Services</span>
+                    <h2>Offres & forfaits</h2>
+                    <p>
+                        Nos forfaits résidentiels fibre optique (<i>Exclusivement pour les appartements</i>)
+                    </p>
+                </div><!-- End Section Title -->
+
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row gy-5">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                </div>
+
+                                <h2 class="gbs-text-dark-blue">FLEX</h2>
+                                <h5>Jusqu’à 50 Mbps</h5>
+                                <h2 class="fw-light">49 $ / mois TTC</h2>
+
+                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="bi bi-universal-access-circle"></i>
+                                </div>
+
+                                <h2 class="gbs-text-dark-blue">ACCESS</h2>
+                                <h5>Jusqu’à 100 Mbps</h5>
+                                <h2 class="fw-light">79 $ / mois TTC</h2>
+
+                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="bi bi-asterisk"></i>
+                                </div>
+
+                                <h2 class="gbs-text-dark-blue">ESSENTIEL</h2>
+                                <h5>Jusqu’à 150 Mbps</h5>
+                                <h2 class="fw-light">120 $ / mois TTC</h2>
+
+                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="bi bi-chevron-bar-contract"></i>
+                                </div>
+
+                                <h2 class="gbs-text-dark-blue">CONFORME</h2>
+                                <h5>Jusqu’à 200 Mbps</h5>
+                                <h2 class="fw-light">175 $ / mois TTC</h2>
+
+                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="bi bi-brightness-high"></i>
+                                </div>
+
+                                <h2 class="gbs-text-dark-blue">EXCEPTIONNEL</h2>
+                                <h5>Jusqu’à 250 Mbps</h5>
+                                <h2 class="fw-light">230 $ / mois TTC</h2>
+
+                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
+                            </div>
+                        </div><!-- End Service Item -->
+                    </div>
+                </div>
+            </section><!-- /Services Section -->
+
             <!-- Why Us Section -->
-            <section id="why-us" class="why-us section">
+            <section id="why-us" class="why-us section bg-light">
                 <!-- Section Title -->
                 <div class="container section-title" data-aos="fade-up">
                     <span class="subtitle">A propos</span>
@@ -212,92 +299,6 @@
                     </div>
                 </div>
             </section><!-- /Why Us Section -->
-
-            <!-- Services Section -->
-            <section id="services" class="services section">
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <span class="subtitle">Services</span>
-                    <h2>Offres & forfaits</h2>
-                    <p>
-                        Nos forfaits résidentiels fibre optique (<i>Exclusivement pour les appartements</i>)
-                    </p>
-                </div><!-- End Section Title -->
-
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
-                    <div class="row gy-5">
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="service-item">
-                                <div class="service-icon">
-                                    <i class="bi bi-graph-up-arrow"></i>
-                                </div>
-
-                                <h2 class="gbs-text-dark-blue">FLEX</h2>
-                                <h5>Jusqu’à 50 Mbps</h5>
-                                <h2 class="fw-light">49 $ / mois TTC</h2>
-
-                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
-                            </div>
-                        </div><!-- End Service Item -->
-
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                            <div class="service-item">
-                                <div class="service-icon">
-                                    <i class="bi bi-universal-access-circle"></i>
-                                </div>
-
-                                <h2 class="gbs-text-dark-blue">ACCESS</h2>
-                                <h5>Jusqu’à 100 Mbps</h5>
-                                <h2 class="fw-light">79 $ / mois TTC</h2>
-
-                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
-                            </div>
-                        </div><!-- End Service Item -->
-
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                            <div class="service-item">
-                                <div class="service-icon">
-                                    <i class="bi bi-asterisk"></i>
-                                </div>
-
-                                <h2 class="gbs-text-dark-blue">ESSENTIEL</h2>
-                                <h5>Jusqu’à 150 Mbps</h5>
-                                <h2 class="fw-light">120 $ / mois TTC</h2>
-
-                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
-                            </div>
-                        </div><!-- End Service Item -->
-
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="service-item">
-                                <div class="service-icon">
-                                    <i class="bi bi-chevron-bar-contract"></i>
-                                </div>
-
-                                <h2 class="gbs-text-dark-blue">CONFORME</h2>
-                                <h5>Jusqu’à 200 Mbps</h5>
-                                <h2 class="fw-light">175 $ / mois TTC</h2>
-
-                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
-                            </div>
-                        </div><!-- End Service Item -->
-
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                            <div class="service-item">
-                                <div class="service-icon">
-                                    <i class="bi bi-brightness-high"></i>
-                                </div>
-
-                                <h2 class="gbs-text-dark-blue">EXCEPTIONNEL</h2>
-                                <h5>Jusqu’à 250 Mbps</h5>
-                                <h2 class="fw-light">230 $ / mois TTC</h2>
-
-                                {{-- <a href="service-details.html" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a> --}}
-                            </div>
-                        </div><!-- End Service Item -->
-                    </div>
-                </div>
-            </section><!-- /Services Section -->
 
             <!-- About Section -->
             <section id="about" class="about section">
