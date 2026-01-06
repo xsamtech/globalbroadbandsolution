@@ -48,6 +48,15 @@
             .services .service-item h5 { color: #999!important; }
             #eligibility { margin-top: 90px; }
             #starter-section { margin-top: 30px; }
+            /* Ajouter un effet de luminescence à l'alert-success */
+            .alert-success { box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); /* Le vert de l'alerte + effet lumineux */ transition: box-shadow 0.3s ease-in-out; }
+            /* Une classe pour l'effet clignotant */
+            .alert-glow { animation: glow .5s ease-in-out infinite alternate; }
+            /* Définition de l'animation glow */
+            @keyframes glow {
+                0% { box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); }
+                100% { box-shadow: 0 0 25px rgba(76, 175, 80, 1); }
+            }
         </style>
 
         <title>
@@ -60,17 +69,18 @@
     </head>
 
     <body class="index-page">
-        <div id="ajax-alert-container" class="position-relative d-none">
+        {{-- <div id="ajax-alert-container" class="position-relative d-none">
             <div class="position-relative">
                 <div class="row position-fixed w-100" style="opacity: 0.9; z-index: 999;">
                     <div class="col-lg-5 col-sm-6 mx-auto">
-                        <div class="alert alert-success fade show rounded-0" role="alert">
+                        <div class="alert alert-success alert-dismissible fade show rounded-0" role="alert">
                             <i class="bi bi-check-circle me-2 fs-4" style="vertical-align: -3px;"></i> Votre immeuble est éligible. Vous pouvez vous inscrire.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Header -->
         <header id="header" class="header d-flex align-items-center fixed-top">
             <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -299,14 +309,25 @@
         <script type="text/javascript" src="{{ asset('assets/js/scripts.custom.js') }}"></script>
 @if (Session::has('full_address'))
         <script type="text/javascript">
-            $(function () {
-                $('#ajax-alert-container').removeClass('d-none');
+            // $(function () {
+            //     $('#ajax-alert-container').removeClass('d-none');
 
-                setInterval(() => {
-                    // Adding alert to do DOM
-                    $('#ajax-alert-container').fadeOut();
-                }, 3000);
-            });
+            //     setInterval(() => {
+            //         // Adding alert to do DOM
+            //         $('#ajax-alert-container').fadeOut();
+            //     }, 3000);
+            // });
+
+            // On sélectionne l'élément de l'alerte
+            const alertElement = document.getElementById('alert');
+
+            // Fonction pour démarrer l'animation clignotante
+            function startGlowing() {
+                alertElement.classList.add('alert-glow');
+            }
+
+            // On démarre l'animation immédiatement
+            startGlowing();
         </script>
 @endif
         <script type="text/javascript">

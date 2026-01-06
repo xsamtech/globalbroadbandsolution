@@ -5,7 +5,15 @@
             <!-- Starter Section Section -->
             <section id="starter-section" class="starter-section section">
                 <!-- Section Title -->
-                <div class="page-title">
+                <div class="page-title pt-4">
+                    <div class="row pb-4">
+                        <div class="col-lg-6 col-sm-7 col-11 mx-auto">
+                            <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="bi bi-check-circle me-2 fs-4" style="vertical-align: -3px;"></i> Votre immeuble est éligible. Vous pouvez vous inscrire.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="breadcrumbs">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -16,13 +24,15 @@
                     </div>
 
                     <div class="title-wrapper">
-                        <h1>Enregistrer votre immeuble</h1>
+                        <h1 class="fw-bold">La Fibre GBS dès 49$/mois</h1>
+                        <h4 class="mb-3 fw-light">Profitez du meilleur de l'internet illimité à la Gombe. Remplissez le formulaire pour réserver votre installation</h4>
                         <p><u>Adresse</u> : <strong>{{ session()->get('full_address') }}</strong></p>
                         <p><u>Commune de l’immeuble</u> : <strong>{{ session()->get('area') }}</strong></p>
                     </div>
                 </div><!-- End Section Title -->
 
-                <div class="container" data-aos="fade-up">
+                {{-- <div class="container" data-aos="fade-up"> --}}
+                <div class="container">
                     <div class="row">
                         <div class="col-lg-10 col-sm-11 col-12 mx-auto">
                             <div class="card card-body bg-light pl-lg-5 p-sm-4 p-3 rounded-4">
