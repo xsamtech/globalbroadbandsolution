@@ -84,7 +84,7 @@ class HomeController extends Controller
         } else {
             return response()->json([
                 'isEligible' => false,
-                'message' => 'Immeuble non éligible (À plus de 8km de Gombe).'
+                'message' => 'Immeuble non éligible (À plus de 8 Km de Gombe).'
             ]);
         }
     }
