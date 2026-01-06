@@ -9,7 +9,7 @@
                     <div class="row pb-4">
                         <div class="col-lg-6 col-sm-7 col-11 mx-auto">
                             <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
-                                <i class="bi bi-check-circle me-2 fs-4" style="vertical-align: -3px;"></i> Félicitation ! 😊 Votre immeuble est éligible.
+                                <i class="bi bi-check-circle me-2 fs-4" style="vertical-align: -3px;"></i> Félicitation ! 😊✨<br class="d-sm-none"> Votre immeuble est éligible.
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
                             </div>
                         </div>
