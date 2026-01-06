@@ -48,8 +48,22 @@
             .services .service-item h5 { color: #999!important; }
             #eligibility { margin-top: 90px; }
             #starter-section { margin-top: 30px; }
+            .scroll-top { right: 32px; bottom: 90px; }
+            /* Style du bouton flottant */
+            #whatsapp-btn {
+                position: fixed;
+                bottom: 20px;  /* Distance depuis le bas */
+                right: 20px;   /* Distance depuis la droite */
+                z-index: 1000; /* Assure que le bouton reste visible */
+            }
+            #whatsapp-btn img {
+                width: 60px;  /* Taille de l'icône */
+                height: 60px; /* Taille de l'icône */
+            }
             /* Ajouter un effet de luminescence à l'alert-success */
-            .alert-success { box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); /* Le vert de l'alerte + effet lumineux */ transition: box-shadow 0.3s ease-in-out; }
+            .alert-success {
+                box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); /* Le vert de l'alerte + effet lumineux */
+                transition: box-shadow 0.3s ease-in-out; }
             /* Une classe pour l'effet clignotant */
             .alert-glow { animation: glow .5s ease-in-out infinite alternate; }
             /* Définition de l'animation glow */
@@ -285,6 +299,30 @@
         <!-- Scroll Top -->
         <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+        <!-- WhatsApp Chat -->
+        <a href="https://wa.me/243817625616" target="_blank" id="whatsapp-btn">
+        {{-- <a role="button" id="whatsapp-btn" data-bs-toggle="modal" data-bs-target="#whatsappModal"> --}}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat with us on WhatsApp" />
+        </a>
+
+        <!-- Modale de WhatsApp -->
+        <div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="whatsappModalLabel">Chattez avec l'Admin sur WhatsApp</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Vous êtes sur le point de commencer une conversation avec l'admin via WhatsApp. Cliquez sur le lien ci-dessous pour commencer à discuter.</p>
+                        <!-- Lien vers WhatsApp -->
+                        <a href="https://wa.me/TON_NUMERO" target="_blank" class="btn btn-success">Commencer le chat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Preloader -->
         <div id="preloader"></div>
 
@@ -331,6 +369,9 @@
         </script>
 @endif
         <script type="text/javascript">
+            const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+            const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+
             $(function () {
                 /**
                  * Ajax to send
