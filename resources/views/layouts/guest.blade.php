@@ -345,7 +345,7 @@
         <!-- Main JS File -->
         <script type="text/javascript" src="{{ asset('assets/js/scripts.axis.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/scripts.custom.js') }}"></script>
-@if (Session::has('full_address'))
+@if (Session::has('building_name'))
         <script type="text/javascript">
             // $(function () {
             //     $('#ajax-alert-container').removeClass('d-none');

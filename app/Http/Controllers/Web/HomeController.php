@@ -34,7 +34,7 @@ class HomeController extends Controller
      */
     public function registration()
     {
-        if (session()->has('full_address')) {
+        if (session()->has('building_name')) {
             return view('registration');
 
         } else {
@@ -73,7 +73,7 @@ class HomeController extends Controller
         );
 
         if ($distance < 8) {
-            session()->put('full_address', $request->full_address);
+            session()->put('building_name', $request->building_name);
             session()->put('area', $request->area);
 
             return response()->json([

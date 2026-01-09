@@ -21,9 +21,9 @@
     @csrf
                                     <div class="row g-4">
                                         <div class="col-sm-4">
-                                            <label for="full_address" class="form-label text-black fw-bold">Adresse de l’immeuble</label>
+                                            <label for="building_name" class="form-label text-black fw-bold">Nom de l’immeuble</label>
                                             {{-- <textarea name="full_address" id="full_address" class="form-control py-3" placeholder="Adresse de votre immeuble" required autofocus></textarea> --}}
-                                            <input type="text" name="full_address" id="full_address" class="form-control py-3" placeholder="Adresse de votre immeuble" required autofocus>
+                                            <input type="text" name="building_name" id="building_name" class="form-control py-3" placeholder="Nom de votre immeuble" required autofocus>
                                         </div>
 
                                         <div class="col-sm-4">

@@ -26,7 +26,7 @@
                     <div class="title-wrapper">
                         <h1 class="fw-bold">La Fibre GBS dès 49$/mois</h1>
                         <h4 class="mb-3 fw-light">Profitez du meilleur de l'internet illimité à la Gombe. Remplissez le formulaire pour réserver votre installation</h4>
-                        <p><u>Adresse</u> : <strong>{{ session()->get('full_address') }}</strong></p>
+                        <p><u>Nom de l’immeuble</u> : <strong>{{ session()->get('building_name') }}</strong></p>
                         <p><u>Commune de l’immeuble</u> : <strong>{{ session()->get('area') }}</strong></p>
                     </div>
                 </div><!-- End Section Title -->
@@ -39,7 +39,7 @@
                                 {{-- <form method="POST" action="{{ route('registration') }}"> --}}
                                 <form method="POST" action="">
     @csrf
-                                    <input type="hidden" name="full_address" value="{{ session()->get('full_address') }}">
+                                    <input type="hidden" name="building_name" value="{{ session()->get('building_name') }}">
                                     <input type="hidden" name="area" value="{{ session()->get('area') }}">
 
                                     <div class="row g-4">
@@ -61,10 +61,10 @@
                                             <input type="text" name="phone" id="phone" class="form-control py-3" placeholder="Votre n° de téléphone ou WhatsApp" required>
                                         </div>
 
-                                        <!-- Neighborhood -->
+                                        <!-- Full address -->
                                         <div class="col-sm-6">
-                                            <label for="neighborhood" class="form-label text-black fw-bold">Quartier de l’immeuble</label>
-                                            <input type="text" name="neighborhood" id="neighborhood" class="form-control py-3" placeholder="Quartier de votre immeuble" required>
+                                            <label for="full_address" class="form-label text-black fw-bold">Adresse exacte de l’immeuble</label>
+                                            <textarea name="full_address" id="full_address" class="form-control py-3" placeholder="Adresse exacte de votre immeuble" required></textarea>
                                         </div>
 
                                         <div class="col-sm-6 mx-auto">
