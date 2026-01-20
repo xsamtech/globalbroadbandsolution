@@ -90,7 +90,7 @@
                                     </div>
 
                                     <div class="stat-item">
-                                        <div class="stat-number">10+</div>
+                                        <div class="stat-number">20+</div>
                                         <div class="stat-label">Ans d’expérience</div>
                                     </div>
                                 </div>
