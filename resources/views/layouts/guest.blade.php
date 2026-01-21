@@ -83,18 +83,63 @@
     </head>
 
     <body class="index-page">
-        {{-- <div id="ajax-alert-container" class="position-relative d-none">
-            <div class="position-relative">
-                <div class="row position-fixed w-100" style="opacity: 0.9; z-index: 999;">
-                    <div class="col-lg-5 col-sm-6 mx-auto">
-                        <div class="alert alert-success alert-dismissible fade show rounded-0" role="alert">
-                            <i class="bi bi-check-circle me-2 fs-4" style="vertical-align: -3px;"></i> Votre immeuble est éligible. Vous pouvez vous inscrire.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+        <!-- MODALS-->
+        <!-- ### Crop other user image ### -->
+        <div class="modal fade" id="cropModal_profile" tabindex="-1" aria-hidden="true" data-bs-backdrop="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header py-0">
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="text-center text-muted">Recadrer l'image avant de l'enregistrer</h5>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 mb-sm-0 mb-4">
+                                    <div class="bg-image">
+                                        <img src="" id="retrieved_image_profile" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary px-4 rounded-pill text-white" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" id="crop_profile" class="btn btn-primary px-4 rounded-pill" data-bs-dismiss="modal">Enregistrer</button>
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
+        <!-- MODALS-->
+
+@if (Session::has('success_message'))
+        <!-- Alert -->
+        <div class="position-relative">
+            <div class="row position-fixed w-100" style="opacity: 0.7; z-index: 999;">
+                <div class="col-lg-5 col-sm-6 mx-auto">
+                    <div class="alert alert-success alert-dismissible fade show rounded-0" role="alert">
+                        <i class="bi bi-check-circle me-2 fs-4" style="vertical-align: -3px;"></i> {!! Session::get('success_message') !!}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (Session::has('error_message'))
+        <!-- Alert -->
+        <div class="position-relative">
+            <div class="row position-fixed w-100" style="opacity: 0.7; z-index: 999;">
+                <div class="col-lg-5 col-sm-6 mx-auto">
+                    <div class="alert alert-danger alert-dismissible fade show rounded-0" role="alert">
+                        <i class="bi bi-x-circle me-2 fs-4" style="vertical-align: -3px;"></i> {!! Session::get('error_message') !!}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+
         <!-- Header -->
         <header id="header" class="header d-flex align-items-center fixed-top">
             <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -112,6 +157,24 @@
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
+@auth
+                <div class="dropdown position-relative">
+                    <a role="button" class="d-sm-inline-block d-none flex-row ms-5 my-3 rounded-pill user-account user-image" data-bs-toggle="dropdown" aria-expanded="false">
+                        <strong class="d-lg-inline-block d-none text-gradient">{{ Auth::user()->firstname . ' ' . Auth::user()->lastname }}</strong>
+                        <img src="{{ !empty(Auth::user()->avatar_url) ? Auth::user()->avatar_url : asset('assets/img/user.png') }}" alt="{{ Auth::user()->firstname . ' ' . Auth::user()->lastname }}" width="50" class="ms-1 rounded-circle img-thumbnail">
+                    </a>
+
+                    <ul class="dropdown-menu position-absolute" style="right: 0; top: 3.1rem; width: 12rem;">
+                        <li><a class="dropdown-item" href="{{ route('dashboard') }}"><i class="bi bi-person me-2"></i>Mon compte</a></li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="post">
+    @csrf
+                                <button class="dropdown-item"><i class="bi bi-power me-2"></i>Quitter la session</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+@endauth
             </div>
         </header>
 

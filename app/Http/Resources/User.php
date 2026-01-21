@@ -49,6 +49,7 @@ class User extends JsonResource
             'status' => $this->status,
             'status_STRING' => !empty($this->status) ? $statuses[$this->status] : null,
             'role' => Role::make($this->role),
+            'buildings' => Building::collection($this->buildings)->resolve(),
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s')
         ];
